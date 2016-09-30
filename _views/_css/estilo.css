@@ -60,3 +60,47 @@
              	text-shadow: 1px 1px 1px rgba(0,0,0,.5);
              }
 
+             p{
+                  font-family: Arial, sans-serif;
+                  text-align: center;
+                  font-style: 30px;
+                  color: #606060;
+                  text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+
+             }
+
+             h1{
+
+                  font-family: Arial, sans-serif;
+                  text-align: center;
+                  font-style: 30px;
+                  color: #606060;
+                  text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+
+             }
+             h2{
+
+                  font-family: Arial, sans-serif;
+                  text-align: center;
+                  font-style: 30px;
+                  color: #606060;
+                  text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+             }
+
+             ul{
+                   font-family: Arial, sans-serif;
+                  text-align: center;
+                  font-style: 30px;
+                  color: #606060;
+                  text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+                  list-style: none;
+
+             }
+             li{
+                  font-family: Arial, sans-serif;
+                  text-align: center;
+                  font-style: 30px;
+                  color: #606060;
+                  text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+             }
+
