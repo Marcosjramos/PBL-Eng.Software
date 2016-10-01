@@ -1,7 +1,5 @@
 <?php
-
-class Prestador extends Cliente {
-
+class PrestadorModel extends ClienteModel{
 	private $areaAtuacao;
 	private $tipoConta;
 
@@ -28,6 +26,8 @@ class Prestador extends Cliente {
 	public function setTipoConta($tipoConta) {
 		$this->tipoConta = $tipoConta;
 	}
-}
 
-?>
+	public function setSexo{
+		$this->sexo;
+	}
+}
