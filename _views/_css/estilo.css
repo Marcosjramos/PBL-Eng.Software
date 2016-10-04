@@ -93,3 +93,12 @@ header#cabecalho {
       color: #606060;
       text-shadow: 1px 1px 1px rgba(0,0,0,.5);
  }
+
+
+/*--------LENINGTON---------*/
+
+.dashboard{float: center; width: 30%;}
+.dashboard-avatar{float: center; width: 30%; position: center; padding: 25px; background: whitesmoke;}
+.dashboard-avatar img{width: 30%;}
+
+/*--------LENINGTON---------*/
