@@ -1,7 +1,6 @@
 <?php
-
-class Prestador extends Cliente {
-
+class PrestadorModel extends ClienteModel{
+	
 	private $areaAtuacao;
 	private $tipoConta;
 
@@ -29,5 +28,3 @@ class Prestador extends Cliente {
 		$this->tipoConta = $tipoConta;
 	}
 }
-
-?>
