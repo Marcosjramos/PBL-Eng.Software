@@ -61,6 +61,7 @@ class Endereco {
 	}
 
 	public function equals($endereco) {
+		
 		if (($this->pais == $endereco->pais) && ($this->estado == $endereco->estado) && ($this->cidade == $endereco->cidade) &&
 			($this->bairro == $endereco->bairro) && ($this->rua == $endereco->rua) && ($this->numero == $endereco->numero)) {
 			return true;

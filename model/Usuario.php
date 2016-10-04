@@ -49,6 +49,7 @@ abstract class Usuario {
 	}
 
 	public function equals($usuario) {
+		
 		if ($this->cpf == $usuario->cpf) {
 			return true;
 		} else {
