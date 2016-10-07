@@ -184,13 +184,10 @@
         <br>
 
         <!-- BOTÃO SALVAR ALTERAÇÕES -->
-        
-        <form name="f_cad" method="post" action="teste.php">
-          <p>
-            <input type="image" name="botaoSalvar" src="_imagens/ico_salvar.png"/>
-          </p>
-        </form>
-        
+        <p>
+          <input type="button" name="botaoEnviar" value="SALVAR" onclick="window.open('perfil_prestador.html', '_parent')"/>
+        </p>
+
       </form>
     </div>
 
