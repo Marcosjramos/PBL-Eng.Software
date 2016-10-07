@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+
+body {
+	background-color: white;
+	color: rgba(0,0,0,1);	
+}
+
+div#interface {
+	width: 950px;
+	background-color: #ffffff;
+	margin: 30px auto 10px auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	padding: 20px 30px 40px 30px;
+}
+
+div#interface p {
+	font-family: Arial, sans-serif;
+ 	text-align: center;
+ 	font-style: 10px;
+ 	color: #606060;
+ 	text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+ 	margin: -10px auto 10px auto;
+}
+
+div#interface h2 {
+	font-family: Arial, sans-serif;
+ 	text-align: center;
+ 	font-style: 10px;
+ 	color: #606060;
+ 	text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+ 	margin: 30px auto 10px auto;
+}
+
+header#cabecalho {
+	border-bottom: 1px #606060 dashed;
+	height: 150px
+}
+
+ header#cabecalho h1 {
+ 	font-family: Arial, sans-serif;
+ 	text-align: center;
+ 	font-style: 30px;
+ 	color: #606060;
+ 	text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+ }
+
+ header#cabecalho p {
+ 	font-family: Arial, sans-serif;
+ 	text-align: center;
+ 	font-style: 30px;
+ 	color: #606060;
+ 	text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+ }
+
+ p {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      font-style: 30px;
+      color: #606060;
+      text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+ }
+
+ h1 {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      font-style: 30px;
+      color: #606060;
+      text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+ }
+ 
+ h2 {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      font-style: 30px;
+      color: #606060;
+      text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+ }
+
+ ul {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      font-style: 30px;
+      color: #606060;
+      text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+      list-style: none;
+ }
+
+ li {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      font-style: 30px;
+      color: #606060;
+      text-shadow: 1px 1px 1px rgba(0,0,0,.5);
+ }
+
+
+/*--------LENINGTON---------*/
+
+.dashboard{float: center; width: 30%;}
+.dashboard-avatar{float: center; width: 30%; position: center; padding: 25px; background: whitesmoke;}
+.dashboard-avatar img{width: 30%;}
+
+/*--------LENINGTON---------*/
