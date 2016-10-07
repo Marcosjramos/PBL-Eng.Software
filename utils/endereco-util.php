@@ -2,22 +2,25 @@
 
 class Endereco {
 
-
   private $pais;
   private $estado;
   private $cidade;
   private $bairro;
-  private $rua;
+  private $logradouro;
   private $numero;
+  private $cep;
+  private $latitude;
+  private $longitude;
 	
-	public function __construct($pais, $estado, $cidade, $bairro, $rua, $numero)
+	public function __construct($pais, $estado, $cidade, $bairro, $logradouro, $numero, $cep)
 	{		
 		$this->pais = $pais;
 		$this->estado = $estado;
 		$this->cidade = $cidade;
 		$this->bairro = $bairro;
-		$this->rua = $rua;
+		$this->logradouro = $logradouro;
 		$this->numero = $numero;
+		$this->cep = $cep;
 	}
 
 	public function getPais() {
@@ -36,12 +39,24 @@ class Endereco {
 		return $this->bairro;
 	}
 
-	public function getRua() {
-		return $this->rua;
+	public function getLogradouro() {
+		return $this->logradouro;
 	}
 
 	public function getNumero() {
 		return $this->numero;
+	}
+
+	public function getCep() {
+		return $this->cep;
+	}
+
+	public function getLatitude() {
+		return $this->latitude;
+	}
+
+	public function getLongitude() {
+		return $this->longitude;
 	}
 	
 	public function setPais($pais) {
@@ -60,17 +75,27 @@ class Endereco {
 		$this->bairro = $bairro;
 	}
 
-	public function setRua($rua) {
-		$this->rua = $rua;
+	public function setLogradouro($logradouro) {
+		$this->logradouro = $logradouro;
 	}
 
 	public function setNumero($numero) {
 		$this->numero = $numero;
 	}
 
+	public function setCep($cep) {
+		$this->cep = $cep;
+	}
+
+	public function setLatitude($latitude) {
+		$this->latitude = $latitude;
+	}
+
+	public function setLongitude($longitude) {
+		$this->longitude = $longitude;
+	}
 	public function equals($endereco) {
-		if (($this->pais == $endereco->pais) && ($this->estado == $endereco->estado) && ($this->cidade == $endereco->cidade) &&
-			($this->bairro == $endereco->bairro) && ($this->rua == $endereco->rua) && ($this->numero == $endereco->numero)) {
+		if (($this->latitude == $endereco->latitude) && ($this->longitude == $endereco->longitude)) {
 			return true;
 		} else {
 			return false;
