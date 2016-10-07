@@ -32,6 +32,15 @@ div#interface h2 {
  	margin: 30px auto 10px auto;
 }
 
+div#interface h3 {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      font-style: 5px;
+      color: #606060;
+      text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+      margin: 30px auto 10px auto;
+}
+
 header#cabecalho {
 	border-bottom: 1px #606060 dashed;
 	height: 150px
@@ -102,3 +111,4 @@ header#cabecalho {
 .dashboard-avatar img{width: 30%;}
 
 /*--------LENINGTON---------*/
+.dashboard-avatar2{float: center; width: 30%; position: right; padding: 25px; background: whitesmoke;}
