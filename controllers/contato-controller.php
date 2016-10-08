@@ -10,7 +10,7 @@ class ContatoController extends MainController
 		// Carrega o view
         require_once ABSPATH . '/views/_includes/header.php';
         require_once ABSPATH . '/views/_includes/menu.php';
-		require_once ABSPATH . '/views/contato/contato-view.php';
+		require_once ABSPATH . '/views/contato-view.php';
         require_once ABSPATH . '/views/_includes/header.php';
 	}
 }

@@ -1,7 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Gilvanei
- * Date: 08/10/2016
- * Time: 14:06
- */
+class ConfiguracoesController extends MainController
+{
+    // URL: dominio.com/exemplo/
+    public function index() {
+
+        // Carrega o modelo
+        #modelo = $this->load_model('contato/contato-model');
+
+        // Carrega o view
+        require_once ABSPATH . '/views/_includes/header.php';
+        require_once ABSPATH . '/views/_includes/menu.php';
+        require_once ABSPATH . '/views/config-view.php';
+        require_once ABSPATH . '/views/_includes/header.php';
+    }
+}

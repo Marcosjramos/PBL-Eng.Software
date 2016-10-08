@@ -29,7 +29,7 @@ class HomeController extends MainController
         require ABSPATH . '/views/_includes/menu.php';
 		
 		// /views/home/home-view.php
-        require ABSPATH . '/views/home/home-view.php';
+        require ABSPATH . '/views/home-view.php';
 		
 		// /views/_includes/footer.php
         require ABSPATH . '/views/_includes/footer.php';
