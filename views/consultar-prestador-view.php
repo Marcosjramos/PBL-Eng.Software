@@ -64,8 +64,8 @@
         </fieldset>
       </h3>
       <br/><p>
-        <input type="image" name="botaoVoltar" src="_imagens/botao_voltar.png" />
-        <input type="image" name="botaoBuscar" src="_imagens/botao_buscar.png" />        
+        <input type="button" name="botaoVoltar" value="VOLTAR"/>        
+        <input type="button" name="botaoBuscar" value="BUSCAR"/>        
       </p>
       <fieldset>
         <legend> Resultados </legend>

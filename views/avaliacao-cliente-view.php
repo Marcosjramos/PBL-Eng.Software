@@ -29,7 +29,7 @@
         </legend>
       </h2>
       <br/><p>
-        <input type="image" name="botaoSalvar" src="_imagens/ico_salvar.png" />
+        <input type="button" name="botaoEnviar" value="ENVIAR" onclick="window.open('perfil-cliente-view.php', '_parent')"/>
       </p>
     </form>
   </div>
