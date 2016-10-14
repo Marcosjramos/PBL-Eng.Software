@@ -7,7 +7,7 @@ class HomeController extends PrincipalController{
         $this->setTitle('Home');
 
         require_once PATH . "/view/includes/cabecalho.php";
-        require_once PATH . "/view/home.php";
+        require_once PATH . "/view/home-view.php";
         require_once PATH . "/view/includes/footer.php";
     }
 
