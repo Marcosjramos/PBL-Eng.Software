@@ -11,7 +11,7 @@
 define('HOST', 'localhost'); //host do banco de dados
 define('USER', 'root');	//usuário do banco de dados
 define('PASS', ''); //senha do usuário
-define('DBSA', 'homerdb'); //nome do banco de dados que será manipulado
+define('DBSA', 'mvc'); //nome do banco de dados que será manipulado
 
 // AUTO LOAD DE CLASSES ####################
 function __autoload($Classe) {

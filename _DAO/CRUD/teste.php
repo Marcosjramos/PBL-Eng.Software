@@ -10,7 +10,7 @@
         //ws_siteviews_agent
         
         $deleta = new Delete;
-        $deleta->ExeDelete('ws_siteviews_agent', "WHERE agent_id >= :id", 'id=23');
+        $deleta->ExeDelete('cliente', "WHERE id >= :id", 'id=0');
         
         if($deleta->getResultado()):
             echo "{$deleta->getNumRegistros()} registro(s) removidos com sucesso!<hr>";
