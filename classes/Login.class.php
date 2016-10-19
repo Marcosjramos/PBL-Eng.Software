@@ -2,7 +2,7 @@
 
 /**
  * <b>Login.class.php</b> 
- * Versão 1.0
+ * Versão 1.0 teste
  * Data de Criação: 15/10/2016
  * Classe responsável por verificar e autenticar o acesso ao sistema
  * @copyright (c) 2016, SKYNERD - Universidade Estadual de Feira de Santana (UEFS), Brasil
