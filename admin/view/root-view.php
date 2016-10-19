@@ -1,8 +1,23 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Marcos Ramos
- * Date: 14/10/2016
- * Time: 17:55
- */
-?>
+  <!DOCTYPE html>
+
+    <html lang="pt-br">
+
+    <head>
+
+        <meta charset="UTF-8"/>
+        
+        <title> Adminstrador do Sistema </title>
+
+    </head>
+
+    <body>
+
+       <?php
+
+
+
+        ?>
+
+    </body>
+
+    </html>
