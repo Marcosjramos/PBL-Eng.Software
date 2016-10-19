@@ -1,24 +1,23 @@
 <?php
 
-abstract class Usuario {
+class Usuario {
 
-	private $nome;
-	private $cpf;
+	//private $id;
 	private $email;
 	private $senha;
-	private $sexo;
 
-	public function __construct($nome, $cpf, $email, $senha, $sexo)
+	public function __construct($email, $senha)
 	{
-		$this->nome = $nome;
-		$this->cpf = $cpf;
+		$this->id = $id;
 		$this->email = $email;
 		$this->senha = $senha;
 	}
 
-	public function getNome() {
-		return $this->nome;
+	/*
+	public function getId() {
+		return $this->id;
 	}
+	*/
 
 	public function getEmail() {
 		return $this->email;
@@ -28,13 +27,11 @@ abstract class Usuario {
 		return $this->senha;
 	}
 
-	public function getSexo() {
-		return $this->sexo;
+	/*
+	public function setId($id) {
+		$this->id = $id;
 	}
-
-	public function setNome($nome) {
-		$this->nome = $nome;
-	}
+	*/
 
 	public function setEmail($email) {
 		$this->email = $email;
@@ -42,19 +39,6 @@ abstract class Usuario {
 
 	public function setSenha($senha) {
 		$this->senha = $senha;
-	}
-
-	public function setSexo($sexo) {
-		$this->sexo = $sexo;
-	}
-
-	public function equals($usuario) {
-		
-		if ($this->cpf == $usuario->cpf) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 }
 
