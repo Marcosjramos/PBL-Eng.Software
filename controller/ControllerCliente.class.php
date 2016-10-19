@@ -6,7 +6,8 @@
  * Versão 1.0
  * Data de Criação: 12/10/2016
  * Classe responsável por 
- * @copyright (c) 2016, SKYNERD
+ * @copyright (c) 2016, SKYNERD - Universidade Estadual de Feira de Santana (UEFS), Brasil
+ * [Lenington Rios]
  */
 class ControllerCliente {
 	
