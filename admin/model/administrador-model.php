@@ -1,22 +1,16 @@
 <?php
 
-class Cliente {
+class Administrador {
 
   private $id;
   private $nome;
-  private $cpf;
-  private $sexo;
-  private $telefone;
   private $email;
   private $senha;
 
-  public function __construct($id, $nome, $cpf, $sexo, $telefone, $email, $senha)
+  public function __construct($id, $nome, $email, $senha)
   {
     $this->id = $id;
     $this->nome = $nome;
-    $this->cpf = $cpf;
-    $this->sexo = $sexo;
-    $this->telefone = $telefone;
     $this->email = $email;
     $this->senha = $senha;
   }
@@ -28,18 +22,6 @@ class Cliente {
 
   public function getNome() {
     return $this->nome;
-  }
-
-  public function getCpf() {
-    return $this->cpf;
-  }
-
-  public function getSexo() {
-    return $this->sexo;
-  }
-
-  public function getTelefone() {
-    return $this->telefone;
   }
 
   public function getEmail() {
@@ -58,18 +40,6 @@ class Cliente {
     $this->nome = $nome;
   }
 
-  public function setCpf($cpf) {
-    $this->cpf = $cpf;
-  }
-
-  public function setSexo($sexo) {
-    $this->sexo = $sexo;
-  }
-
-  public function setTelefone($telefone) {
-    $this->telefone = $telefone;
-  }
-
   public function setEmail($email) {
     $this->email = $email;
   }
@@ -78,13 +48,13 @@ class Cliente {
     $this->senha = $senha;
   }
 
-  public function equals($cliente) {
-    if ($this->cpf == $usuario->cpf)) {
+  public function equals($administrador) {
+    if (($this->email == $administrador->email) && ($this->senha == $administrador->senha)) {
       return true;
     } else {
       return false;
     }
-  } 
+  }  
 }
 
 ?>

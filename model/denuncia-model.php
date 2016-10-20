@@ -1,17 +1,17 @@
 <?php
-require_once PATH . "/CRUD/Config.inc.php";
 
 class Denuncia {
 
-	private $idDenuncia;   //autoincrementado automaticamente no banco de dados
+	private $idDenuncia;
 	private $idDenunciante;
 	private $idDenunciado;
 	private $data;
 	private $descricao;
 	private $resultado;
 
-	function __construct($idDenunciante, $idDenunciado, $data, $descricao, $resultado)
+	function __construct($idDenuncia, $idDenunciante, $idDenunciado, $data, $descricao, $resultado)
 	{
+		$this->idDenuncia = $idDenuncia;
 		$this->idDenunciante = $idDenunciante;
 		$this->idDenunciado = $idDenunciado;
 		$this->data = $data;
@@ -77,7 +77,7 @@ class Denuncia {
 	}
 
 	public function inserir() {
-        $dados = ['idDenunciado' => $this->idDenunciado, 'idDenunciante' => $this->idDenunciante, 'data' => $this->data, 'descricao' => $this->descricao, 'resultado' => $this->resultado];
+        $dados = ['idDenuncia' => $this->idDenuncia, 'idDenunciado' => $this->idDenunciado, 'idDenunciante' => $this->idDenunciante, 'data' => $this->data, 'descricao' => $this->descricao, 'resultado' => $this->resultado];
 
         $insere = new Create;
         $insere->ExeCreate('denuncia', $dados);
@@ -85,18 +85,18 @@ class Denuncia {
 
     public function buscar() {
     	$busca = new Read;
-        //$busca->ExeRead('denuncia', 'WHERE id = :id', 'id=');  Como recuperar o id no banco?
+        $busca->ExeRead('denuncia', 'WHERE id = :id', 'id='.$idDenuncia);
     }
 
     public function alterar() {
     	$dados = ['resultado' => $this->resultado];
     	$altera = new Update;
-    	//$altera->ExeUpdate('denuncia', $dados, "WHERE id = :id", 'id=');   Como recuperar o id no banco?
+    	$altera->ExeUpdate('denuncia', $dados, "WHERE id = :id", 'id='.$idDenuncia);
     }
 
     public function remover() {
     	$remove = new Delete;
-        //$remove->ExeDelete('denuncia', "WHERE id = :id", 'id=');   Como recuperar o id no banco?
+        $remove->ExeDelete('denuncia', "WHERE id = :id", 'id='.$idDenuncia);
     }
 
     public function listar() {
