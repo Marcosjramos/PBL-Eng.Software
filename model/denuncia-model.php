@@ -77,24 +77,24 @@ class Denuncia {
 	}
 
 	public function inserir() {
-        $dados = ['idDenuncia' => $this->idDenuncia, 'idDenunciado' => $this->idDenunciado, 'idDenunciante' => $this->idDenunciante, 'data' => $this->data, 'descricao' => $this->descricao, 'resultado' => $this->resultado];
+        $dados = ['idDenunciado' => $this->idDenunciado, 'idDenunciante' => $this->idDenunciante, 'data' => $this->data, 'descricao' => $this->descricao, 'resultado' => $this->resultado];
 
         $insere = new Create;
         $insere->ExeCreate('denuncia', $dados);
     }
 
-    public function buscar() {
+    public function buscar($id) {
     	$busca = new Read;
         $busca->ExeRead('denuncia', 'WHERE id = :id', 'id='.$idDenuncia);
     }
 
-    public function alterar() {
+    public function alterar($id) {
     	$dados = ['resultado' => $this->resultado];
     	$altera = new Update;
     	$altera->ExeUpdate('denuncia', $dados, "WHERE id = :id", 'id='.$idDenuncia);
     }
 
-    public function remover() {
+    public function remover($id) {
     	$remove = new Delete;
         $remove->ExeDelete('denuncia', "WHERE id = :id", 'id='.$idDenuncia);
     }

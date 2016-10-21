@@ -121,23 +121,23 @@ class Endereco {
         $Cadastra->ExeCreate('endereco', $Dados);
     }
     
-    public function delete($idEndereco){
+    public function delete($id){
         require './CRUD/Config.inc.php';
         $Deleta = new Delete;
-        $Deleta->ExeDelete('endereco', 'WHERE id =: id', 'id ='.$idEndereco);
+        $Deleta->ExeDelete('endereco', 'WHERE id =: id', 'id ='.$id);
     }
     
-    public function read($idEndereco){
+    public function read($id){
         require './CRUD/Config.inc.php';
         $Pesquisa = new Read;
-        $Pesquisa->ExeRead('endereco', 'WHERE id =: $id', 'id='.$idEndereco);
+        $Pesquisa->ExeRead('endereco', 'WHERE id =: $id', 'id='.$id);
     }
     
-    public function update($idEndereco){
+    public function update($id){
         $Dados = ['pais' => $this->pais, 'estado' => $this->estado, 'cidade' => $this->cidade, 'bairro' => $this->bairro,
                 'logradouro' => $this->logradouro, 'numero' => $this->numero, 'cep' => $this->cep];
         $Atualiza = new Update;
-        $Atualiza->ExeUpdate('endereco', $Dados, 'WHERE id=: $id', 'id ='.$idEndereco);
+        $Atualiza->ExeUpdate('endereco', $Dados, 'WHERE id=: $id', 'id ='.$id);
     }
 }
 

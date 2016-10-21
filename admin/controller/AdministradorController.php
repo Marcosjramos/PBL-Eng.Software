@@ -3,12 +3,17 @@
  
 class AdministradorController {
 
-  public function exibirLogs($date) {
+  private $schema = "homerdb";
+  private $usuarioTable = "homer";
+  private $denunciaTable = "denuncia";
+  private $logTable = "log";
 
+  public function exibirLogs() {
+    return "SELECT * FROM {$this->schema}.{$this->logTable}";
   }
 
   public function listarClientes() {
-
+    return "SELECT * FROM {$this->schema}.{$this->usuarioTable}";
   }
 
   public function banirUsuario( ) {
@@ -20,11 +25,12 @@ class AdministradorController {
   }
 
   public function verificarDenuncia() {
-
+    return "SELECT * FROM {$this->schema}.{$this->denunciaTable}";
   }
 
-  public function excluirDenuncia() {
-
+  public function excluirDenuncia($id) {
+    $denuncia = new Denuncia();
+    $denuncia->remover($id);
   }
 
   public function addArea() {
