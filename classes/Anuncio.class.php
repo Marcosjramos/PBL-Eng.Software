@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /**
  * <b>Anuncio.class.php</b> 
@@ -44,7 +44,7 @@ class Anuncio{
 		if($this->verificaID($idHomer, 'homer')):
 			$this->inicializaVariaveis(null, $idHomer, $titulo, $descricao, $valor);
 
-			$this->salvarAnucnio();
+			$this->salvarAnuncio();
 		else:
 			echo "USUÁRIO N EXISTE";
 		endif;
@@ -84,7 +84,7 @@ class Anuncio{
 	}
 
 	//método que efetua o salvamento do anuncio no banco de dados
-	private function salvarAnucnio(){
+	private function salvarAnuncio(){
 		$this->Create = new Create;
 		$this->Create->ExeCreate('anuncios', 
 			['idHomer' => $this->idHomer, 'titulo' => $this->titulo, 'descricao' => $this->descricao, 'valor' => $this->valor]);
