@@ -2,7 +2,7 @@
 	function formatar(mascara, documento){
 		var i = documento.value.length;
 		var saida = mascara.substring(0,1);
-		var texto = mascara.substring(i)
+		var texto = mascara.substring(i);
 
 		if (texto.substring(0,1) != saida){
 			documento.value += texto.substring(0,1);
@@ -51,7 +51,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="idCpf">CPF:</label>
-							<input type="text" class="form-control" name="tC" id="idCpf" size="14" maxlength="14" placeholder="CPF" OnKeyPress="formatar('###.###.####-##', this)">
+							<input type="text" class="form-control" name="tC" id="idCpf" size="14" maxlength="14" placeholder="CPF" OnKeyPress="formatar('###.###.###-##', this)">
 						</div>
 					</div>
 

@@ -8,10 +8,11 @@
 * @copyright (c) 2016, Lenington do C. Rios - UEFS,
 * Código adaptado de Robson V. Leite - UPINSIDE TREINAMENTOS.
 */
+
 define('HOST', 'localhost'); //host do banco de dados
 define('USER', 'root');	//usuário do banco de dados
 define('PASS', ''); //senha do usuário
-define('DBSA', 'mvc'); //nome do banco de dados que será manipulado
+define('DBSA', 'homerdb'); //nome do banco de dados que será manipulado
 
 // AUTO LOAD DE CLASSES ####################
 function __autoload($Classe) {
@@ -22,7 +23,6 @@ function __autoload($Classe) {
 	foreach ($configDiretorio as $nomeDiretorio) {
 		if (!$includeDiretorio && file_exists(__DIR__ . "\\{$nomeDiretorio}\\{$Classe}.class.php")
 									&& !is_dir(__DIR__ . "\\{$nomeDiretorio}\\{$Classe}.class.php")) {
-			
 			include_once(__DIR__ . "\\{$nomeDiretorio}\\{$Classe}.class.php");
 			$includeDiretorio = true;
 		}

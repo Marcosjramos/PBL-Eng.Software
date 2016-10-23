@@ -8,12 +8,17 @@
 			documento.value += texto.substring(0,1);
 		}
 	}
-	</script>
+</script>
+<?php
+	require_once("C:/wamp/www/projetos/pbl2/model/ClienteModel.class.php");
+	require_once("C:/wamp/www/projetos/pbl2/model/EnderecoModel.class.php");
+	require_once("C:/wamp/www/projetos/pbl2/model/prestador-model.php");
+?>
 
 <div class="animate-box">
 	<div class="container">
 		<div class="post">
-			<form method="post" action="">
+			<form method="post">
 				<fieldset>
 					<legend><h2>Cadastro de Usuário</h2></legend>
 
@@ -44,21 +49,35 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="idCidade">Cidade: </label>
-							<input type="text" class="typeahead tt-query form-control typeahead" name="tCidade" id="tags" placeholder="Cidade" autocomplete="off" spellcheck="false"/>
+							<input type="text" class="typeahead tt-query form-control typeahead" name="tCidade" id="tCidade" placeholder="Cidade" autocomplete="off" spellcheck="false"/>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="idCidade">Logradoudo: </label>
+							<input type="text" class="typeahead tt-query form-control typeahead" name="tLogradouro" id="tLogradouro" placeholder="Av./Rua/Alameda/Estreito..." autocomplete="off" spellcheck="false"/>
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="idBairro">Bairro: </label>
-							<input type="text" class="form-control" name="tBairro" id="idBairro" placeholder="Bairro" />
+							<input type="text" class="form-control" name="tBairro" id="idBairro" placeholder="Bairro..." />
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="idNum">Número da Casa: </label>
-							<input type="number" class="form-control" name="tNum" id="idNum" size="12" placeholder="Número" min="0" max="9999" />
+							<input type="number" class="form-control" name="tNum" id="idNum" size="12" placeholder="Número..." min="0" max="9999" />
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="idNum">CEP: </label>
+							<input type="text" class="form-control" name="tCep" id="idCep" placeholder="CEP..." maxlength="10" OnKeyPress="formatar('##.###-###', this)" />
 						</div>
 					</div>
 
@@ -90,7 +109,7 @@
 
 					<div class="col-md-12 animate-box">
 						<div class="form-group">
-							<button value="Voltar" href="<?php echo PATH . "/cadastro"; ?>" name="tPrevious" class="btn btn-primary" onclick="history.go(-1)">Voltar</button>
+							<button value="Voltar" href="" name="tPrevious" class="btn btn-primary" onclick="history.go(-1)">Voltar</button>
 							<input type="submit" value="Enviar Cadastro" name="tCadastrar" class="btn btn-primary" />
 						</div><!-- Fim da div Group do botão enviar -->
 					</div>
@@ -98,21 +117,75 @@
 			</form>
 
 			<?php
-				require_once PATH . "/model/ClienteModel.php";
-				$mesagemStatus = '';
+				if(isset($_POST['tCadastrar'])){
 
-				if(isset($_POST['btn'])){
-					$cliente = new ClienteModel();
-					$cliente->setNome($_GET['tNome']);
-					$cliente->setSenha($_GET['tSenha']);
-					$cliente->setEmail($_GET['tMail']);
-					$cliente->setCpf($_GET['tCpf']);
-					$cliente->setGenero($_GET['tSexo']);
+					$endereco = new Endereco();
 
-					$cliente->inserir();
+					$endereco->setEstado($_POST['tEstado']);
+					$endereco->setCidade($_POST['tCidade']);
+					$endereco->setBairro($_POST['tBairro']);
+					$endereco->setLogradouro($_POST['tLogradouro']);
+					$endereco->setNumero($_POST['tNum']);
+					$endereco->setCep($_POST['tCep']);
+					$endereco->setLatitude(0);
+					$endereco->setLongitude(0);
+
+					$idEnd = $endereco->create();
+
+					if(isset($_POST['isPrestador'])){
+
+						$pro = new Prestador();
+
+						$pro->setNome($_GET['tN']);
+						$pro->setSenha($_GET['tS']);
+						$pro->setEmail($_GET['tE']);
+						$pro->setCpf($_GET['tC']);
+						$pro->setGenero($_GET['tSe']);
+						$pro->setTelefone($_POST['tTelefone']);
+						$pro->setAreaAtuacao('tArea');
+						$pro->setEndereco($idEnd);
+						$pro->setTipoConta('gratis');
+
+					?>
+					<script>
+						alert('foi');
+					</script>
+				<?php
+
+						if($pro->inserir()){
+							echo "Cadastrado com sucesso";
+							?>
+								<script>
+									window.location="profile-photo";
+								</script>
+							<?php
+						}else{
+							echo "Erro ao cadastrar";
+						}
+					}else {
+						$cliente = new Cliente();
+
+						$cliente->setNome($_GET['tN']);
+						$cliente->setSenha($_GET['tS']);
+						$cliente->setEmail($_GET['tE']);
+						$cliente->setCpf($_GET['tC']);
+						$cliente->setGenero($_GET['tSe']);
+						$cliente->setTelefone($_POST['tTelefone']);
+						$cliente->setEndereco($idEnd);
+
+						if($cliente->inserir()){
+							echo "Cadastrado com sucesso";
+							?>
+								<script>
+									window.location="profile-photo";
+								</script>
+							<?php
+						}else{
+							echo "Erro ao cadastrar";
+						}
+					}
 				}
 
-				echo $mesagemStatus;
 			?>
 		</div>
 	</div>

@@ -6,7 +6,6 @@ class loginController extends PrincipalController
 
     public function index()
     {
-
         $this->setTitle('Cadastro Ep 2');
 
         require_once PATH . "/view/includes/cabecalho.php";

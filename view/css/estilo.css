@@ -119,3 +119,205 @@
 .select select:disabled ~ .select__arrow {
     border-top-color: #ccc;
 }
+
+/* CSS adicional para busca e home */
+
+
+@media only screen and (max-width: 1000px) {
+    .txtBusca{
+        float:left;
+        padding-left:5px;
+        font-size: 1.1em;
+        border:none;
+        height: auto;
+        width: 62%;
+        background-color: #FFF;
+        border-radius: .4em 0 0 .4em;
+        padding: 0.1em 1.8em;
+        border-bottom: solid .2em #27E1CE;
+        border-top: solid .2em #27E1CE;
+        border-left: solid .1em #27E1CE;
+        background-image: url('search.png');
+        background-position: 3px 3px;
+        background-repeat: no-repeat;
+        margin-bottom: 8px;
+    }
+
+    .btnBusca-tamanho{
+        border-radius: 0 .4em .4em 0;
+        width:34%;
+    }
+
+    .btnCadastro-tamanho{
+        border-radius: .4em 0 0 .4em;
+        width: 48%;
+    }
+
+    .btnFacebook{
+        border:none;
+        float:left;
+        height: auto;
+        border-radius: .4em 0 0 .4em;
+        width: 48%;
+        font-weight: bold;
+        background: #3B5998;
+        font-size: 1.1em;
+        padding: 0.1em;
+        min-width: 90px;
+        border: solid .2em #3B5998;
+        color: #FFF;
+        -webkit-transition: width 0.4s ease-in-out;
+        border-radius: 0 .4em .4em 0;
+    }
+
+    .btnFacebook{
+        border:none;
+        float:left;
+        height: auto;
+        border-radius: .46em 0 0 .46em;
+        width: 49%;
+        font-weight: bold;
+        background: #3B5998;
+        font-size: .8em;
+        padding: 0.54em;
+        min-width: 90px;
+        border: solid .2em #3B5998;
+        color: #FFF;
+        -webkit-transition: width 0.4s ease-in-out;
+        border-radius: 0 .4em .4em 0;
+    }
+
+    .btnBusca{
+        border:none;
+        float:left;
+        height: auto;
+        font-weight: bold;
+        background: #27E1CE;
+        font-size: 1.1em;
+        padding: 0.1em;
+        min-width: 90px;
+        border: solid .2em #27E1CE;
+        color: #FFF;
+        -webkit-transition: width 0.4s ease-in-out;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 1000px) {
+    .txtBusca{
+        float:left;
+        padding-left:5px;
+        font-size: 1.4em;
+        border:none;
+        height: auto;
+        width: 63%;
+        background-color: #FFF;
+        border-radius: .4em 0 0 .4em;
+        padding: 0.1em 1.8em;
+        border-bottom: solid .2em #27E1CE;
+        border-top: solid .2em #27E1CE;
+        border-left: solid .1em #27E1CE;
+        background-image: url('search.png');
+        background-position: 10px 10px;
+        background-repeat: no-repeat;
+        margin-bottom: 10px;
+    }
+
+    .btnBusca-tamanho{
+        border-radius: 0 .4em .4em 0;
+        width:35%;
+    }
+
+    .btnCadastro-tamanho{
+        border-radius: .4em 0 0 .4em;
+        width: 49%;
+    }
+
+
+    .btnFacebook{
+        border:none;
+        float:left;
+        height: auto;
+        border-radius: .4em 0 0 .4em;
+        width: 49%;
+        font-weight: bold;
+        background: #3B5998;
+        font-size: 1.4em;
+        padding: 0.1em;
+        min-width: 90px;
+        border: solid .2em #3B5998;
+        color: #FFF;
+        -webkit-transition: width 0.4s ease-in-out;
+        border-radius: 0 .4em .4em 0;
+        background-image: url('../images/fb.png');
+        background-position: 1.1em 10px;
+        background-repeat: no-repeat;
+        margin-bottom: 8px;
+    }
+
+    .btnBusca{
+        border:none;
+        float:left;
+        height: auto;
+        font-weight: bold;
+        background: #27E1CE;
+        font-size: 1.4em;
+        padding: 0.1em;
+        min-width: 90px;
+        border: solid .2em #27E1CE;
+        color: #FFF;
+        -webkit-transition: width 0.4s ease-in-out;
+    }
+
+    .margem{
+        margin-top: 5em;
+    }
+}
+
+
+.centro{
+    display: block;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.txtBusca:focus, .btnBusca:focus, .btnFacebook:focus, .btnCadastro:focus{
+    outline: none;
+}
+
+
+.btnFacebook:hover{
+    border: solid .2em #3F67A7;
+    background-color: #3F67A7;
+}
+
+
+.btnBusca:hover{
+    background-color: #22D4C2;
+    border: solid .2em #22D4C2;
+}
+
+.preco{
+    list-style-type: none;
+}
+
+::-webkit-input-placeholder {
+    color: #27E1CE;
+}
+
+.verde{
+    background-color: #27E1CE;
+    color: #FFF;
+}
+
+.logo{
+    display: block;
+    position: relative;
+    margin: 0;
+    margin-top: -22px;
+    width: 90.2%;
+    height: auto;
+}

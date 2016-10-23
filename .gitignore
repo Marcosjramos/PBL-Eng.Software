@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -22,12 +23,42 @@ $RECYCLE.BIN/
 # OSX
 # =========================
 
+=======
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+>>>>>>> 9e2914718528cc4888ee6791382c52dbc7972ff8
 .DS_Store
 .AppleDouble
 .LSOverride
 
 # Icon must ends with two \r.
 Icon
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9e2914718528cc4888ee6791382c52dbc7972ff8
 # Thumbnails
 ._*
 
@@ -38,3 +69,5 @@ Icon
 
 #arquivos do phpStorm
 .idea
+config.php
+config

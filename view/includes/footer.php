@@ -41,8 +41,8 @@
 		</div>
 	</footer>
 	</div>
-	
-	
+
+<script src="<?php echo HOME_URI; ?>/view/_estilo/_padrao/js/google_map.js"></script>
 	<!-- jQuery -->
 	<script src="<?php echo HOME_URI; ?>/view/_estilo/_padrao/js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
