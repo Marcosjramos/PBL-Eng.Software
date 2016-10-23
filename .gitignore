@@ -26,7 +26,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -38,3 +39,5 @@ Icon
 
 #arquivos do phpStorm
 .idea
+config.php
+config

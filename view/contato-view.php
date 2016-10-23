@@ -2,6 +2,7 @@
     <div class="container">
         <div class="post">
             <div class="col-md-8 col-md-offset-2 col-md-push-2 animate-box">
+                <div style="height: 2em"></div>
                 <h2 >Fale conosco</h2>
                 <p>Tem dúvidas sobre como utilizar o serviço, sugestões ou reclamação? Deixe uma mensagem abaixo que nossa equipe de suporte entrará em contato o mais rápido possível.</p><br><br>
 

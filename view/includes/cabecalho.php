@@ -57,10 +57,23 @@
 
     <!-- Estilo Proprio para radio e check -->
     <link rel="stylesheet" href="<?php echo HOME_URI; ?>/view/css/estilo.css">
+    <link rel="stylesheet" href="<?php echo HOME_URI; ?>/view/app/simplemodal/Source/assets/css/simplemodal.css" type="text/css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="<?php echo HOME_URI; ?>/view/app/simplemodal/Source/assets/css/reset.css" type="text/css" media="screen" title="no title" charset="utf-8">
+        <link rel="stylesheet" href="<?php echo HOME_URI; ?>/view/app/simplemodal/Source/assets/css/demo.css" type="text/css" media="screen" title="no title" charset="utf-8">
 
     <script src="<?php echo HOME_URI; ?>/view/js/MascaraValidacao.js"></script>
     <script src="<?php echo HOME_URI; ?>/view/_estilo/_padrao/js/modernizr-2.6.2.min.js"></script>
     <script src="<?php echo HOME_URI; ?>/view/_estilo/_padrao/js/respond.min.js"></script>
+    <script src="<?php echo HOME_URI; ?>/view//js/jquery.min.js"></script>
+    <script src="<?php echo HOME_URI; ?>/view//js/jquery.Jcrop.js"></script>
+
+
+    <script src="<?php echo HOME_URI; ?>/view/app/simplemodal/Source/assets/js/mootools-core-1.3.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo HOME_URI; ?>/view/app/simplemodal/Source/assets/js/mootools-more-1.3.1.1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo HOME_URI; ?>/view/app/simplemodal/Source/assets/js/simple-modal.js" type="text/javascript" charset="utf-8"></script>
+    <script src="<?php echo HOME_URI; ?>/view/app/simplemodal/Source/assets/js/demo.js" type="text/javascript" charset="utf-8"></script>
+
+
 
     </head>
     <body>
@@ -85,3 +98,5 @@
             </div>
         </div>
     </header>
+
+        <hr style="height:2px; border:none; color:#000; background-color:#22D4C2; margin-top: 0px; margin-bottom: 0px;"/>
