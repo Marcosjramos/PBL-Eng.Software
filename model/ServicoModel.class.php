@@ -3,7 +3,7 @@
 /**
 * 
 */
-class ServicoModel
+class Servico
 {
 
 	private $idServico;

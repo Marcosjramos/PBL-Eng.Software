@@ -10,9 +10,9 @@
 	}
 </script>
 <?php
-	require_once("C:/wamp/www/projetos/pbl2/model/ClienteModel.class.php");
-	require_once("C:/wamp/www/projetos/pbl2/model/EnderecoModel.class.php");
-	require_once("C:/wamp/www/projetos/pbl2/model/prestador-model.php");
+	require_once(PATH."/model/ClienteModel.class.php");
+	require_once(PATH."/model/EnderecoModel.class.php");
+	require_once(PATH."/model/PrestadorModel.class.php");
 ?>
 
 <div class="animate-box">

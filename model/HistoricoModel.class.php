@@ -2,7 +2,7 @@
 /**
 * 
 */
-class HistoricoModel 
+class Historico
 {
 	
 	var $idHistorico;
