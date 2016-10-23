@@ -1,47 +1,3 @@
-<!--<html>
-<head>
-    <title><?php echo $_SESSION['title']; ?></title>
-    <link rel="icon" href="favicon.ico" />
-    <style>
-        input[type=text], input[type=number], select {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type=submit], .btn {
-            width: 100%;
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type=submit]:hover {
-            background-color: #45a049;
-        }
-
-        div#corpo {
-            display: block;
-            position: relative;
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 20px;
-            width: 50%;
-            margin: 0 auto;
-        }
-    </style>
-</head>
-</html>
-<body>-->
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -114,7 +70,7 @@
     <header id="fh5co-header" role="banner">
         <div class="container">
             <div class="header-inner">
-                <h1><a href="index.html">Homer</a></h1>
+                <h1><a href="/projetos/PBL-Eng.Software">Homer</a></h1>
                 <nav role="navigation">
                     <ul>
                         <li><a href="/projetos/PBL-Eng.Software">Início</a></li>

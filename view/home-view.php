@@ -1,9 +1,8 @@
-<?php if ( ! defined('ABSPATH')) exit; ?>
 <div class="container">
 	<aside id="fh5co-hero" class="js-fullheight">
 		<div class="flexslider js-fullheight">
 			<ul class="slides">
-				<li style="background-image: url(<?php echo HOME_URI;?>/_estilo/_padrao/images/slide_3.jpg);">
+				<li style="background-color: #0d6aad;">
 					<div class="overlay-gradient"></div>
 					<div class="container">
 						<div class="col-md-10 col-md-offset-1 text-center js-fullheight slider-text">
