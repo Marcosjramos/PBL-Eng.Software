@@ -58,4 +58,23 @@ class Prestador extends Cliente {
         return $cadastra->getResultado();
     }
 
+    public function getPrestador($id){
+        $Pesquisa = new Read;
+        //exemplo de pesquisa de cliente
+        $Pesquisa->ExeRead('homer', 'WHERE nome = :nome AND id = :id', 'nome=Teste Apenas&id=5');
+
+
+        if($Pesquisa->getResultado()):
+            //pegando as variáveis da tabela:
+            $array = $Pesquisa->getResultado();
+            $this->setNome($array[0]['nome']);
+            $this->setId($array[0]['idUsuario']);
+            $this->setEmail($array[0]['idUsuario']);
+            $this->setCpf($array[0]['idUsuario']);
+            $this->setGenero($array[0]['idUsuario']);
+            $this->setTelefone($array[0]['idUsuario']);
+            $this->setEndereco($array[0]['idUsuario']);
+        endif;
+        var_dump($Pesquisa);
+    }
 }

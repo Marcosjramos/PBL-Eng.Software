@@ -133,6 +133,10 @@ class Cliente{
         return $this->endereco;
     }
 
+    public function getFoto(){
+        return 'perfil.jpg';
+    }
+
     public function inserir(){
         $dados = ['nome' => $this->nome, 'email' => $this->email, 'senha' => $this->senha,
                     'cpf' => $this->cpf, 'sexo' => $this->genero, 'telefone'=> $this->telefone,
@@ -142,5 +146,22 @@ class Cliente{
         $cadastra->ExeCreate('cliente', $dados);
 
         return $cadastra->getResultado();
+    }
+
+    public function getCliente($id){
+        $Pesquisa = new Read;
+        //exemplo de pesquisa de cliente
+        $Pesquisa->ExeRead('cliente', 'WHERE idCliente = :idCliente', 'idCliente='.$id);
+
+        if($Pesquisa->getResultado()):
+            //pegando as variáveis da tabela:
+            $array = $Pesquisa->getResultado();
+            $this->setNome($array[0]['nome']);
+            $this->setId($array[0]['idCliente']);
+            $this->setEmail($array[0]['email']);
+            $this->setCpf($array[0]['cpf']);
+            $this->setGenero($array[0]['sexo']);
+            $this->setTelefone($array[0]['telefone']);
+        endif;
     }
 }

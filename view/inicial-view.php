@@ -1,73 +1,128 @@
-<div class="header">
-	<div class="window"></div>
-	<div class="simple-modal-title"></div>
+<?php $id = $_GET['id'];
+
+$tipo = $_SESSION['tipo'];
+	$cliente;
+
+	if($tipo == 'cliente'){
+		require_once (PATH.'/model/ClienteModel.class.php');
+		$cliente = new Cliente();
+		$cliente->getCliente($id);
+	}
+?>
+<div class="animate-box">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+
+				<div class="col-md-3 ">
+					<?php
+					if(empty($cliente->getFoto())) {
+						$ft = 'http://placehold.it/200x200';
+					}else{
+						$ft = HOME_URI.'/view/_uploads/profile/'.$cliente->getFoto();
+					}
+					?>
+
+					<img class="img-circle img-responsive img-center imagem" src="<?php echo $ft; ?>">
+				</div>
+
+				<div class="text-justify">
+					<h2><?php echo $cliente->getNome();?></h2>
+
+
+
+					<div class="alert-success" style="padding: 10px;">
+						<h4><?php
+							if($cliente->getGenero() == 'masc'){
+								echo "Bem-vido";
+							}else{
+								echo "Bem-vinda";
+							}?> ao Homer!</h4>
+						<p>Você entrou como <?php echo $tipo; ?></p>
+						<div class="col-md-8">
+						<div class="progress">
+							<div class="progress-bar progress-bar-success" style="width: 85%">
+								<span class="sr-only">85% Complete (success)</span>
+							</div>
+							<div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 5%">
+								<span class="sr-only">5% Complete (warning)</span>
+							</div>
+							<div class="progress-bar progress-bar-danger" style="width: 10%">
+								<span class="sr-only">10% Complete (danger)</span>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div><br/>
+
+				<div class="col-md-12">
+					<div class="col-md-6 ">
+					<a><button class="btn btn-default" style="width: 100%">Buscar Serviços</button></a>
+					</div>
+					<div class="col-md-6">
+					<p><a href="#" class="btn btn-primary btn-outline with-arrow" style="width: 100%">Inscreva-se agora! <i class="icon-arrow-right"></i></a></p>
+						</div>
+
+						<div class="col-md-12 carousel">
+							<fieldset><legend></legend>
+
+							</fieldset>
+						</div>
+
+
+
+			<div class="row">
+				<div class="col-sm-6 col-md-3">
+					<div class="thumbnail">
+						<img src="https://goo.gl/k1LHHZ" alt="...">
+						<div class="caption">
+							<h3>Thumbnail label</h3>
+							<p>...</p>
+							<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+						</div>
+					</div>
+				</div>
+
+						<div class="col-sm-6 col-md-3">
+							<div class="thumbnail">
+								<img src="https://goo.gl/k1LHHZ" alt="...">
+								<div class="caption">
+									<h3>Thumbnail label</h3>
+									<p>...</p>
+									<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-md-3">
+							<div class="thumbnail">
+								<img src="https://goo.gl/k1LHHZ" alt="...">
+								<div class="caption">
+									<h3>Thumbnail label</h3>
+									<p>...</p>
+									<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-md-3">
+							<div class="thumbnail">
+								<img src="https://goo.gl/k1LHHZ" alt="...">
+								<div class="caption">
+									<h3>Thumbnail label</h3>
+									<p>...</p>
+									<p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+			</div>
 </div>
-<div class="wrapper">
-	<ul>
-		<li class="example-item" id="alert">
-			<img src="assets/images/example-1.jpg" width="196" height="147" alt="Example 1">
-			<a href="javascript;">Alert</a>
-		</li>
-		<li class="example-item" id="confirm">
-			<img src="assets/images/example-2.jpg" width="196" height="147" alt="Example 2">
-			<a href="#">Confirm</a>
-		</li>
-		<li class="example-item" id="modal">
-			<img src="assets/images/example-3.jpg" width="196" height="147" alt="Example 3">
-			<a href="#">Modal</a>
-		</li>
-		<li class="example-item" id="modal-ajax">
-			<img src="assets/images/example-4.jpg" width="196" height="147" alt="Example 4">
-			<a href="#">Modal Ajax</a>
-		</li>
-		<li class="example-item" id="modal-image">
-			<img src="assets/images/example-5.jpg" width="196" height="147" alt="Example 5">
-			<a href="#">Modal Image</a>
-		</li>
-		<li class="example-item" id="alert-noheader">
-			<img src="assets/images/example-6.jpg" width="196" height="147" alt="Example 6">
-			<a href="#">No header</a>
-		</li>
-		<li class="example-item" id="modal-nofooter">
-			<img src="assets/images/example-7.jpg" width="196" height="147" alt="Example 7">
-			<a href="#">Video embed</a>
-		</li>
-		<li class="example-item" id="example-eheh">
-			<img src="assets/images/example-8.jpg" width="196" height="147" alt="?">
-			<a href="#">?</a>
-		</li>
-
-	</ul>
-	<div class="clear"></div>
-
-	<h2>Lightbox Examples</h2>
-
-	<div class="clear"></div>
-
-	<ul>
-		<li class="example-item">
-			<a title="Picture 1" rel="simplemodal[examples]" href="http://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg">
-				<img src="http://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg" width="196" height="147" alt="Creative Commons by Juan Lago" />
-			</a>
-		</li>
-		<li class="example-item">
-			<a title="Picture 2" rel="simplemodal[examples]" href="assets/images/big/pic-2.jpg">
-				<img src="assets/images/pic-2.jpg" width="196" height="147" alt="Creative Commons by Juan Lago" />
-			</a>
-		</li>
-		<li class="example-item">
-			<a title="Picture 3" rel="simplemodal[examples]" href="assets/images/big/pic-3.jpg">
-				<img src="assets/images/pic-3.jpg" width="196" height="147" alt="Creative Commons by Juan Lago" />
-			</a>
-		</li>
-		<li class="example-item">
-			<a title="Picture 4 (Standalone picture)" rel="simplemodal[other-examples]" href="assets/images/big/pic-4.jpg">
-				<img src="assets/images/pic-4.jpg" width="196" height="147" alt="Creative Commons by Juan Lago" />
-			</a>
-		</li>
-	</ul>
-	<div class="clear"></div>
-
-	<p class="credits">© 2011 <a title="Plasm" href="http://www.plasm.it">Plasm</a>. All Rights Reserved.</p>
+		</div>
+	</div>
 </div>
-<div class="clear"></div>

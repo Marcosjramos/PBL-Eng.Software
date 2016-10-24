@@ -7,6 +7,9 @@
  */
 require_once('../ClienteModel.class.php');
 
+$c = new Cliente();
+$c->getCliente($_GET['id']);
+echo $c->getNome();
 
 
 

@@ -1,1 +1,3 @@
-<?php require_once ('config.php');
+<?php
+session_start();
+require_once ('config.php');
