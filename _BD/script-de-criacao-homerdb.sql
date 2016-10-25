@@ -1,9 +1,8 @@
-﻿/*Script de criacao do Homerdb*/
-
+/* Script do Homer Database*/
 create database homerDB 
 default character set utf8
 default collate utf8_general_ci;
-
+ 
 use homerdb;
 
 CREATE TABLE adm (
@@ -35,6 +34,7 @@ CREATE TABLE clientes (
     sexo enum ('M', 'F'),
     telefone VARCHAR(15),
     dataCadastro timestamp default current_timestamp(),
+    dataSuspensao datetime,
     PRIMARY KEY (id),
     foreign key (idEndereco)
 		references endereco(id)
