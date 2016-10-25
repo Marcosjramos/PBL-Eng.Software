@@ -1,12 +1,26 @@
-<?php $id = $_GET['id'];
-
+<?php
 $tipo = $_SESSION['tipo'];
-	$cliente;
+$cliente;
 
-	if($tipo == 'cliente'){
-		require_once (PATH.'/model/ClienteModel.class.php');
-		$cliente = new Cliente();
-		$cliente->getCliente($id);
+if($tipo == 'cliente'){
+	require_once (PATH.'/model/ClienteModel.class.php');
+	$cliente = new Cliente();
+}else{
+	require_once (PATH.'/model/PrestadorModel.class.php');
+	$cliente = new Prestador();
+}
+
+$msg = "<div class='alert-warning btn' style='display: block; position: relative; margin: 6em auto;'>Usuário não encontrado!</div>";
+
+if(empty($_GET['id'])){
+		echo $msg;
+	}else{
+	$id = $_GET['id'];
+	$cliente->getCliente($id);
+
+	if(!$cliente->getId()){
+		echo $msg;
+		return;
 	}
 ?>
 <div class="animate-box">
@@ -16,10 +30,10 @@ $tipo = $_SESSION['tipo'];
 
 				<div class="col-md-3 ">
 					<?php
-					if(empty($cliente->getFoto())) {
+					if($cliente->getFoto()=='default'){
 						$ft = 'http://placehold.it/200x200';
 					}else{
-						$ft = HOME_URI.'/view/_uploads/profile/'.$cliente->getFoto();
+						$ft = HOME_URI.'/view/foto/imagens/'.$cliente->getFoto();
 					}
 					?>
 
@@ -126,3 +140,5 @@ $tipo = $_SESSION['tipo'];
 		</div>
 	</div>
 </div>
+
+<?php } ?>

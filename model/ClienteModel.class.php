@@ -10,6 +10,7 @@ class Cliente{
     private $genero;
     private $telefone;
     private $endereco;
+    private $foto;
 
     public function __construct()
     {
@@ -134,13 +135,13 @@ class Cliente{
     }
 
     public function getFoto(){
-        return 'perfil.jpg';
+        return $this->foto;
     }
 
     public function inserir(){
         $dados = ['nome' => $this->nome, 'email' => $this->email, 'senha' => $this->senha,
                     'cpf' => $this->cpf, 'sexo' => $this->genero, 'telefone'=> $this->telefone,
-                    'idPrestador' => null, 'idEndereco' => $this->endereco
+                    'idPrestador' => null, 'idEndereco' => $this->endereco, 'thumb' => $this->foto
         ];
         $cadastra = new Create;
         $cadastra->ExeCreate('cliente', $dados);
@@ -162,6 +163,46 @@ class Cliente{
             $this->setCpf($array[0]['cpf']);
             $this->setGenero($array[0]['sexo']);
             $this->setTelefone($array[0]['telefone']);
+            $this->setFoto($array[0]['thumb']);
         endif;
+    }
+
+    public function setFoto($foto){
+        $this->foto = $foto;
+    }
+
+    public function getLimitada($inicio, $limite){
+        $Pesquisa = new Read;
+        //exemplo de pesquisa de cliente  id=1&limit=2
+        $Pesquisa->ExeRead('cliente', 'LIMIT '.$limite.' OFFSET '.$inicio);
+
+        if($Pesquisa->getResultado()):
+
+            echo "Exibindo ".$limite." de ".$Pesquisa->getNumRegistros();
+            return $Pesquisa->getResultado();
+        endif;
+    }
+
+    public function getNumberReg(){
+        $Pesquisa = new Read;
+        //exemplo de pesquisa de cliente  id=1&limit=2
+        $Pesquisa->ExeRead('cliente', '', '');
+
+        return $Pesquisa->getNumRegistros();
+    }
+
+    public function gravarFoto($id){
+        //dados da tabela sem o id
+        $Dados = ['thumb' => $this->foto];
+
+        $Atualiza = new Update;
+        //nome da tabela, os dados que serão atualizados e em que linha será atualizado
+        $Atualiza->ExeUpdate('cliente', $Dados, 'WHERE idCliente = :idCliente', 'idCliente='.$id);
+        if($Atualiza->getResultado()){
+            echo "<div class='alert-success btn'>Foto atualizada com sucesso!</div>";
+            ?><script>
+                window.location="<?php echo HOME_URI.'/inicio';?>";
+            </script><?php
+        }
     }
 }

@@ -9,7 +9,7 @@ class ProfilePhotoController extends PrincipalController
         $this->setTitle('Foto de Perfil');
 
         require_once PATH . "/view/includes/cabecalho.php";
-        require_once PATH . "/demos/crop.php";
+        require_once PATH . "/foto/index.html";
         require_once PATH . "/view/includes/footer.php";
     }
 

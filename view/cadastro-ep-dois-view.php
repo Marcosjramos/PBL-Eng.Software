@@ -156,7 +156,7 @@
 							echo "Cadastrado com sucesso";
 							?>
 								<script>
-									window.location="profile-photo";
+									window.location="<?php echo HOME_URI.'/view/foto';?>";
 								</script>
 							<?php
 						}else{
@@ -171,13 +171,14 @@
 						$cliente->setCpf($_GET['tC']);
 						$cliente->setGenero($_GET['tSe']);
 						$cliente->setTelefone($_POST['tTelefone']);
+						$cliente->setFoto('default');
 						$cliente->setEndereco($idEnd);
 
 						if($cliente->inserir()){
 							echo "Cadastrado com sucesso";
 							?>
 								<script>
-									window.location="profile-photo";
+									window.location="<?php echo HOME_URI.'/view/foto';?>";
 								</script>
 							<?php
 						}else{
