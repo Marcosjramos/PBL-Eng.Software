@@ -47,6 +47,76 @@ if(empty($_GET['id'])){
                 <!-- NOME DO USUÁRIO (COMO UMA VARIÁVEL) -->
                 <?php $nome = $cliente->getNome(); ?>
                 <legend><?php echo $nome ?> </legend>
+
+
+                <br>
+                <!-- AREA DE ATUAÇAO DO USUÁRIO (COMO UMA VARIÁVEL) -->
+                <?php
+                $area = $cliente->getAreaAtuacao();
+                ?>
+                <legend> <?php echo $area ?></legend>
+
+                <br>
+                <!-- TIPO DE CONTA DO USUÁRIO (COMO UMA VARIÁVEL) -->
+                <?php
+                $tipoconta = $cliente->geTipoConta();
+                ?>
+                <legend> <?php echo $tipoconta ?></legend>
+
+
+                <br>
+                <!-- E-MAIL DO USUARIO(COMO UMA VARIÁVEL) -->
+                <?php
+                $email = $cliente->getEmail();
+                ?>
+                <legend> <?php echo $email ?></legend>
+
+                <br>
+                <!-- CPF DO USUÁRIO (COMO UMA VARIÁVEL) -->
+                <?php
+                $cpf = $cliente->getCpf();
+                ?>
+                <legend> <?php echo $cpf ?></legend>
+
+                <br>
+                <!-- GENERO DO USUÁRIO (COMO UMA VARIÁVEL) -->
+                <?php
+                $genero = $cliente->getGenero();
+                ?>
+                <legend> <?php echo $genero ?></legend>
+
+                <br>
+                <!-- TELEFONE DO USUÁRIO (COMO UMA VARIÁVEL) -->
+                <?php
+                $telefone = $cliente->getTelefone();
+                ?>
+                <legend> <?php echo $telefone ?></legend>
+
+                <br>
+                <!-- ENDERECO DO USUÁRIO (COMO UMA VARIÁVEL) -->
+                <?php
+                $endereco = $cliente->getEndereco();
+                $pais = $endereco->getPais();
+                $estado = $endereco->getEstado();
+                $cidade = $endereco->getCidade();
+                $bairro = $endereco->getBairro();
+                $logradouro = $endereco->getLogradouro();
+                $numero = $endereco->getNumero();
+                $cep = $endereco->getCep();
+                $latitude = $endereco->getLatitude();
+                $longitude = $endereco->getLongitude();
+                ?>
+                <legend> <?php echo $pais;
+                               echo $estado;
+                               echo $cidade;
+                               echo $bairro;
+                               echo $logradouro;
+                               echo $numero;
+                               echo $cep;
+                               echo $latitude;
+                               echo $longitude; ?></legend>
+
+
                 <legend>Avaliações</legend>
               </div>
             </h3>
