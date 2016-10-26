@@ -4,7 +4,7 @@
             <div class="col-md-8 col-md-offset-2 col-md-push-2 animate-box">
                 <div style="height: 2em"></div>
                 <h2 >Publicar Serviço</h2>
-                <p>Publique um serviço ...</p><br><br>
+                <p>...</p><br><br>
 
             </div>
             
