@@ -8,16 +8,16 @@ $cliente;
 
 $msg = "<div class='alert-warning btn' style='display: block; position: relative; margin: 6em auto;'>Usuário não encontrado!</div>";
 
-if(empty($_GET['id'])){
-    echo $msg;
-  }else{
-  $id = $_GET['id'];
-  $cliente->getCliente($id);
+        if(empty($_GET['id'])){
+          echo $msg;
+        }else{
+          $id = $_GET['id'];
+          $cliente->getCliente($id);
 
-  if(!$cliente->getId()){
-    echo $msg;
-    return;
-  }
+          if(!$cliente->getId()){
+            echo $msg;
+            return;
+          }
 ?>
         <form method="get"  id="fContato">
           <article>                    
@@ -114,3 +114,4 @@ if(empty($_GET['id'])){
 
           </article>
         </form>
+        <?php }

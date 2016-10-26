@@ -1,15 +1,5 @@
-<script>
-	function formatar(mascara, documento){
-		var i = documento.value.length;
-		var saida = mascara.substring(0,1);
-		var texto = mascara.substring(i)
-
-		if (texto.substring(0,1) != saida){
-			documento.value += texto.substring(0,1);
-		}
-	}
-</script>
 <?php
+	#define("PATH", "C:/wamp/www/projetos/PBL-Eng.Software" );
 	require_once(PATH."/model/ClienteModel.class.php");
 	require_once(PATH."/model/EnderecoModel.class.php");
 	require_once(PATH."/model/PrestadorModel.class.php");
@@ -52,9 +42,10 @@
 
 				$login = new Login;
 				$login->Login($_POST['tM'], $_POST['tS']);
-				//echo "<br>{$login->getID()}<br>";
+				echo "<br>{$login->getID()}<br>";
 
 				if($login->isLogado()){
+					echo 'logou';
 					?>
 						<script>
 							window.location="<?php echo HOME_URI.'/inicio?id=12';?>";

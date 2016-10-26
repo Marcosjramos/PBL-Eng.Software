@@ -177,8 +177,16 @@ class Cliente{
         $Pesquisa->ExeRead('cliente', 'LIMIT '.$limite.' OFFSET '.$inicio);
 
         if($Pesquisa->getResultado()):
+            return $Pesquisa->getResultado();
+        endif;
+    }
 
-            echo "Exibindo ".$limite." de ".$Pesquisa->getNumRegistros();
+    public function getAll(){
+        $Pesquisa = new Read;
+        //exemplo de pesquisa de cliente  id=1&limit=2
+        $Pesquisa->ExeRead('cliente', '');
+
+        if($Pesquisa->getResultado()):
             return $Pesquisa->getResultado();
         endif;
     }
