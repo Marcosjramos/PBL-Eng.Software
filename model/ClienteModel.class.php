@@ -205,4 +205,12 @@ class Cliente{
             </script><?php
         }
     }
+
+    public function buscarEnderecoPorId($id){
+        $en = new Endereco();
+        return $en->read($id);
+    }
+
+
+
 }
