@@ -155,3 +155,5 @@ if(empty($_GET['id'])){
 
           </article>
         </form>
+
+      <?php }
