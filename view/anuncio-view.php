@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-<?php
-/**
- * Created by PhpStorm.
- * User: Gilvanei
- * Date: 27/10/2016
- * Time: 10:41
- */
-=======
 <div class="animate-box">
     <div class="container">
         <div class="post">
@@ -80,4 +71,3 @@
         $anuncio->criarAnuncio();
     }
 }
->>>>>>> e3ea24ce5e0f27d80530c8af39350454741fd47e

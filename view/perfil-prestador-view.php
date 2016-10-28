@@ -95,8 +95,7 @@ if(empty($_GET['id'])){
                 <br>
                 <!-- ENDERECO DO USUÁRIO (COMO UMA VARIÁVEL) -->
                 <?php
-                $id = $cliente->getEndereco();
-                $endereco = $cliente->buscarEnderecoPorId($id);
+                $endereco = $cliente->getEndereco();
                 $pais = $endereco->getPais();
                 $estado = $endereco->getEstado();
                 $cidade = $endereco->getCidade();

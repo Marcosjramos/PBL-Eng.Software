@@ -1,15 +1,15 @@
 <?php
 
 require_once ('PrincipalController.class.php');
-class AnuncioController extends PrincipalController
+class PerfilController extends PrincipalController
 {
 
     public function index()
     {
-        $this->setTitle('Cadastro');
+        $this->setTitle('Entrar');
 
         require_once PATH . "/view/includes/cabecalho.php";
-        require_once PATH . "/view/anuncio-view.php";
+        require_once PATH . "/view/perfil-view.php";
         require_once PATH . "/view/includes/footer.php";
     }
 

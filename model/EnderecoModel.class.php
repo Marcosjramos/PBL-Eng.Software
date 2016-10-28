@@ -73,22 +73,18 @@ class Endereco{
 	public function setLongitude($longitude) {
 		$this->longitude = $longitude;
 	}
-    
-    public function setIdEndereco($idEndereco){
+        public function setIdEndereco($idEndereco){
                 $this->idEndereco = $idEndereco;
-    }
+        }
 
-    public function equals($endereco) {
+        public function equals($endereco) {
 		if (($this->latitude == $endereco->latitude) && ($this->longitude == $endereco->longitude)) {
 			return true;
 		} else {
 			return false;
 		}
-
 	}
-
-    public function create(){
-    
+        public function create(){
             $Dados = ['estado' => $this->estado, 'cidade' => $this->cidade, 'bairro' => $this->bairro,
                     'rua' => $this->logradouro, 'cep' => $this->cep, 'numero' => $this->numero,
 					'cLatitude' => $this->latitude, 'cLongitude' => $this->longitude];
@@ -96,27 +92,23 @@ class Endereco{
             $Cadastra->ExeCreate('localizacao', $Dados);
 
 			return $Cadastra->getResultado();
-    }
+        }
         
-    public function delete($idEndereco){
+        public function delete($idEndereco){
             $Deleta = new Delete;
             $Deleta->ExeDelete('endereco', 'WHERE id =: id', 'id ='.$idEndereco);
-    }
+        }
         
-    public function read($idEndereco){
+        public function read($idEndereco){
             $Pesquisa = new Read;
             $Pesquisa->ExeRead('endereco', 'WHERE id =: $id', 'id='.$idEndereco);
-            return $Pesquisa->getResultado();
-    }
+        }
         
-    public function update($idEndereco){
+        public function update($idEndereco){
             $Dados = ['pais' => $this->pais, 'estado' => $this->estado, 'cidade' => $this->cidade, 'bairro' => $this->bairro,
                     'logradouro' => $this->logradouro, 'numero' => $this->numero, 'cep' => $this->cep];
             $Atualiza = new Update;
             $Atualiza->ExeUpdate('endereco', $Dados, 'WHERE id=: $id', 'id ='.$idEndereco);
-<<<<<<< HEAD
-    }
-=======
         }
 
 	public function getEndereco($id){
@@ -136,6 +128,5 @@ class Endereco{
 			#$this->setFoto($array[0]['thumb']);
 		endif;
 	}
->>>>>>> e3ea24ce5e0f27d80530c8af39350454741fd47e
 }
 ?>

@@ -77,11 +77,4 @@ class Prestador extends Cliente {
         endif;
         var_dump($Pesquisa);
     }
-
-     public function buscarEnderecoPorId($id){
-        $en = new Endereco();
-        return $en->read($id);
-    }
-
-    
 }
