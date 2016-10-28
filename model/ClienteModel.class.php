@@ -11,10 +11,19 @@ class Cliente{
     private $telefone;
     private $endereco;
     private $foto;
+    private $logado;
+
+    public function getLogado(){
+        return $this->logado;
+    }
+
+    public function setLogado($log){
+        $this->logado = $log;
+    }
 
     public function __construct()
     {
-        require_once ("C:/wamp/www/projetos/pbl2/_DAO/CRUD/Config.inc.php");
+        require_once ("C:\wamp\www\projetos\PBL-Eng.Software/_DAO/CRUD/Config.inc.php");
     }
 
     public function getId(){
@@ -141,11 +150,12 @@ class Cliente{
     public function inserir(){
         $dados = ['nome' => $this->nome, 'email' => $this->email, 'senha' => $this->senha,
                     'cpf' => $this->cpf, 'sexo' => $this->genero, 'telefone'=> $this->telefone,
-                    'idPrestador' => null, 'idEndereco' => $this->endereco, 'thumb' => $this->foto
+                    'thumb' => $this->foto, 'logado' =>$this->logado, 'idPrestador' => null,
+                    'idEndereco' => $this->endereco
+
         ];
         $cadastra = new Create;
         $cadastra->ExeCreate('cliente', $dados);
-
         return $cadastra->getResultado();
     }
 
@@ -164,6 +174,7 @@ class Cliente{
             $this->setGenero($array[0]['sexo']);
             $this->setTelefone($array[0]['telefone']);
             $this->setFoto($array[0]['thumb']);
+            $this->setEndereco($array[0]['idEndereco']);
         endif;
     }
 
@@ -207,10 +218,7 @@ class Cliente{
         //nome da tabela, os dados que serão atualizados e em que linha será atualizado
         $Atualiza->ExeUpdate('cliente', $Dados, 'WHERE idCliente = :idCliente', 'idCliente='.$id);
         if($Atualiza->getResultado()){
-            echo "<div class='alert-success btn'>Foto atualizada com sucesso!</div>";
-            ?><script>
-                window.location="<?php echo HOME_URI.'/inicio';?>";
-            </script><?php
+           return true;
         }
     }
 

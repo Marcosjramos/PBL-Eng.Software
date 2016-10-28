@@ -1,5 +1,5 @@
 <?php
-require_once ("C:/wamp/www/projetos/pbl2/_DAO/CRUD/Config.inc.php");
+#require_once (PATH."/model//_DAO/CRUD/Config.inc.php");
 class Endereco{
 	private $idEndereco;
 	private $pais;
@@ -14,7 +14,7 @@ class Endereco{
 
 	public function __construct()
 	{
-
+		require_once (PATH."/_DAO/CRUD/Config.inc.php");
 	}
 	public function getPais() {
 		return $this->pais;
@@ -114,6 +114,28 @@ class Endereco{
                     'logradouro' => $this->logradouro, 'numero' => $this->numero, 'cep' => $this->cep];
             $Atualiza = new Update;
             $Atualiza->ExeUpdate('endereco', $Dados, 'WHERE id=: $id', 'id ='.$idEndereco);
+<<<<<<< HEAD
     }
+=======
+        }
+
+	public function getEndereco($id){
+		$Pesquisa = new Read;
+		//exemplo de pesquisa de cliente
+		$Pesquisa->ExeRead('localizacao', 'WHERE idEndereco = :idEndereco', 'idEndereco='.$id);
+
+		if($Pesquisa->getResultado()):
+			//pegando as variáveis da tabela:
+			$array = $Pesquisa->getResultado();
+			$this->setEstado($array[0]['estado']);
+			$this->setCidade($array[0]['cidade']);
+			$this->setBairro($array[0]['bairro']);
+			$this->setLogradouro($array[0]['bairro']);
+			$this->setNumero($array[0]['numero']);
+			$this->setCep($array[0]['cep']);
+			#$this->setFoto($array[0]['thumb']);
+		endif;
+	}
+>>>>>>> e3ea24ce5e0f27d80530c8af39350454741fd47e
 }
 ?>

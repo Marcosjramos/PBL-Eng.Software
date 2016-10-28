@@ -29,22 +29,22 @@
 
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="idSenha">Senha:</label>
-							<input type="password" class="form-control" name="tS" id="idSenha" size="16" maxlength="16" placeholder="16 dígitos"/>
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="form-group">
 							<label for="idEmail">E-mail:</label>
-							<input type="email" class="form-control" name="tM" id="idEmail" size="20" maxlength="40" placeholder="example@gmail.com" />
+							<input type="email" class="form-control" name="tE" id="idEmail" size="20" maxlength="40" placeholder="example@gmail.com" />
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="form-group">
-							<label for="idCmail">Confirmar e-mail:</label>
-							<input type="email" class="form-control" name="tMC" id="idCmail" size="20" maxlength="40" placeholder="example@gmail.com" />
+							<label for="idSenha">Senha:</label>
+							<input type="password" class="form-control" name="tS" id="idSenha" size="16" maxlength="16" placeholder="Entre 8 e 16 dígitos..."/>
+						</div>
+					</div>
+
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="idCmail">Confirmar senha:</label>
+							<input type="password" class="form-control" name="tSC" id="idCmail" size="20" maxlength="40" placeholder="Entre 8 e 16 dígitos..." />
 						</div>
 					</div>
 

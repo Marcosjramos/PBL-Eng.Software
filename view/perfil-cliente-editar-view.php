@@ -1,146 +1,105 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8"/>
-    <title> Editar Perfil - Cliente</title>
-    <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
-  </head>
+<?php
+$tipo = 'cliente';
+$cliente;
 
-  <body>
-    <div id="interface">
-      <header id="cabecalho">
-        <hgroup>
-          <h1 class="fontzero">Editar Perfil:</h1>
-          <p>
-          
-          </p>
-        </hgroup>
-      </header>
-        <form method="get"  id="fContato">
-          <article>                    
-            <!-- FOTO DO USUÁRIO -->
-            <h2>
-              <legend>Alterar Foto:</legend>
-                <div class="dashboard-avatar-avatar">
-                  <img title="Nome Sobrenome" alt="Nome Sobrenome" src="_imagens/foto_perfil.png">
-                  <br>
-                  <input type="file" accept="image/*" name="fotoPerfil"></input>
-                </div>
-            </h2>
+require_once (PATH.'/model/EnderecoModel.class.php');
+require_once (PATH.'/model/ClienteModel.class.php');
+$cliente = new Cliente();
+$end = new Endereco();
 
-            <h2>
-              <legend>Seu Nome/Sobrenome:</legend>
-              <!-- NOME DO USUÁRIO -->
-              <label>
-                  <input type="text" name="nome" value="" placeholder="Nome:"/>
-              </label>
 
-              <!-- SOBRENOME DO USUÁRIO -->
-              <label class="right">
-                  <input type="text" name="sobrenome" value="" placeholder="Sobrenome:"/>
-              </label>
-            </h2>
+$msg = "<div class='alert-warning btn' style='display: block; position: relative; margin: 6em auto;'>Usuário não encontrado!</div>";
 
-            <!-- CPF DO USUÁRIO -->
-            <h2><legend>CPF:
-              <label>
-                <input type="text" name="cpf" disabled value="" placeholder="CPF:"/>
-              </label>
-            </legend></h2>
+if(empty($_GET['id'])){
+  echo $msg;
+}else{
+$id = $_GET['id'];
+$cliente->getCliente($id);
 
-            <!-- SEXO DO USUÁRIO -->
-            <h2><legend>Sexo:
-              <label><input type="radio" name="sexo"  value="f"> Feminino</label>
-              <label><input type="radio" name="sexo" checked value="m"> Masculino</label>
-            </legend></h2>
+if(!$cliente->getId()){
+  echo $msg;
+  return;
+}
+?>
+    <!-- FOTO DO USUÁRIO -->
+    <?php
+    if($cliente->getFoto()=='default'){
+      $ft = 'http://placehold.it/200x200';
+    }else{
+      $ft = HOME_URI.'/view/foto/imagens/'.$cliente->getFoto();
+    }
 
-            <!-- DATA DE NASCIMENTO DO USUÁRIO -->
-            <h2><legend>Data de Nascimento:
-              <label>
-                  <input type="text" name="nascimento" value="" placeholder="Nascimento:"/>
-              </label>
-            </legend></h2>
+    $end->getEndereco($cliente->getEndereco());
 
-            <!-- E-MAIL DO USUÁRIO -->
-            <h2><legend>E-mail:
-              <label>
-                  <input type="email" name="email"  value="" placeholder="E-mail: nome@exemplo.com.br"/>
-              </label>
-            </legend></h2>
 
-            <!-- TELEFONE DO USUÁRIO -->
-            <h2><legend>Telefones:                
-              <label>
-                  <input type="text"  name="telefone" value="" placeholder="Telefone:"/>
-              </label>
+    ?>
 
-              <!-- CELULAR DO USUÁRIO -->
-              <label class="right">
-                  <input type="text" name="celular" value="" placeholder="Celular:"/>
-              </label>    
-            </legend></h2>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+  <div style="height: 2em"></div>
+  <div class="row">
+    <div class="col-md-offset-2 col-md-10 col-lg-offset-2 col-lg-8">
+      <div class="well profile">
+        <?php if($cliente->getGenero()=='Masculino'){echo "<i class='icon icon-profile-male'></i>"; }else{
+          echo "<i class='icon icon-profile-female'></i>";} ?>
 
-            <!-- LINK DO FACEBOOK DO USUÁRIO -->
-            <h2><legend>Link do Facebook: 
-              <label class="right">
-                  <input type="text" name="facebookLink" value="" placeholder="Link do seu Facebook:"/>
-              </label>  
-            </legend></h2>
+        <div class="col-sm-12">
 
-            <!-- ENDEREÇO DO USUÁRIO -->  
-            <h2><legend>Meu Endereço:
-              <br>
-              <label>
-                  <input type="text" name="cep" value="" placeholder="Cep:"/>
-              </label>
-
-              <label class="right">
-                  <input type="text"  name="rua" value="" placeholder="Nome da Rua:"/>
-              </label>
-
-              <label>
-                  <input type="text" name="alunoNumero" value="" placeholder="Número:"/>
-              </label>
-
-              <label class="right">
-                  <input type="text" name="complemento" value="" placeholder="Complemento:"/>
-              </label>
-
-              <label>
-                  <input type="text"  name="bairro" value="" placeholder="Bairro:"/>
-              </label>
-
-              <label class="right">
-                  <input type="text" list="cidades" name="cidade" value="" placeholder="Cidade:"/>
-              </label>
-
-              <label>
-                  <input type="text" list="estados" name="uf" value="" placeholder="UF do Estado:"/>
-              </label> 
-            </legend></h2>
-
-            <!-- ALTERAR SENHA -->
-            <h2><legend>Alterar Minha Senha:</legend> 
-            <label>
-                <input type="password" name="senha" value="" placeholder="Nova Senha:"/>
-            </label>
-
-            <br>
-
-            <label class="right">
-                <input type="password" name="confirmarSenha" value="" placeholder="Confirmar Nova Senha:"/>
-            </label></h2>
-
-          </article>
-
-          <br>
-
-          <!-- BOTÃO SALVAR ALTERAÇÕES -->
-          <p>
-            <input type="button" name="botaoEnviar" value="SALVAR" onclick="window.open('perfil_cliente.html', '_parent')"/>
-          </p>
-
-        </form>
+          <div class="col-xs-12 col-sm-8">
+            <h2><?php echo $cliente->getNome(); ?></h2>
+            <p>No Homer como <strong><?php echo $tipo?></strong>. </p>
+            <p><strong>Local: </strong> <?php echo $end->getBairro().', '.$end->getCidade().' - '.$end->getEstado().'.'; ?> </p>
+            <p><strong>Contato: </strong>
+              <span class="tags"><?php echo $cliente->getTelefone().'</span> | <span class="tags">'.$cliente->getEmail(); ?></span>
+            </p>
+          </div>
+          <div class="col-xs-12 col-sm-3 text-center">
+            <figure>
+              <img src="<?php echo $ft; ?>" alt="" class="img-circle img-responsive">
+              <figcaption class="ratings">
+                <p>
+                  <a href="#">
+                    <span class="fa fa-star"></span>
+                  </a>
+                  <a href="#">
+                    <span class="fa fa-star"></span>
+                  </a>
+                  <a href="#">
+                    <span class="fa fa-star"></span>
+                  </a>
+                  <a href="#">
+                    <span class="fa fa-star"></span>
+                  </a>
+                  <a href="#">
+                    <span class="fa fa-star-o"></span>
+                  </a>
+                  Avaliação
+                </p>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="col-xs-12 divider text-center">
+          <div class="col-xs-12 col-sm-4 emphasis">
+            <h2><strong>&nbsp;&nbsp;</strong></h2>
+            <p><small>&nbsp;&nbsp;</small></p>
+            <button class="btn btn-success btn-block"><i class="fa fa-history" aria-hidden="true"></i></span> Histórico </button>
+          </div>
+          <div class="col-xs-12 col-sm-4 emphasis">
+            <h2><strong>245</strong></h2>
+            <p><small>Favoritou</small></p>
+            <button class="btn btn-info btn-block"><span class="fa fa-fav"></span> Favoritar </button>
+          </div>
+          <div class="col-xs-12 col-sm-4 emphasis">
+            <h2><strong>245</strong></h2>
+            <p><small>Contratou</small></p>
+            <button class="btn btn-info btn-block"><span class="fa fa-fav"></span> Contratar </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </body>
-</html>
+  </div>
+</div>
+
+  <div style="height: 2em"></div>
+<?php } ?>

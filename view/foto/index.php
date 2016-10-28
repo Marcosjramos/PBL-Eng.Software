@@ -85,7 +85,9 @@
                     }
                     if(_('imgName')){
                         var imgName = _('imgName').value;
+                        var id = "<?php echo $_GET['id']; ?>";
                         formData.append('imgName', imgName);
+                        formData.append('imgId', id);
                     }
                     var request  = new XMLHttpRequest();
                     if(_('toCrop'))
@@ -171,8 +173,9 @@
                                 </div>
                             </form>
                         </div>
-
-                        <div class="col-md-7 col-md-offset-3">
+                        <div class="col-md-12">
+                        <hr style="height:2px; border:none; color:#000; background-color:#22D4C2; margin-top: 0px; margin-bottom: 0px;"/></div>
+                        <div class="col-md-7 text-center">
                             <output id="result" class="control"></output>
                         </div>
                     </div>

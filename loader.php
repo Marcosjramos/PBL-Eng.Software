@@ -5,6 +5,12 @@
  * Date: 12/10/2016
  * Time: 20:06
  */
+
+
+
+
+
+
 if(!empty($_GET['control'])){
 
     /* Recebe o parâmetro Control e Acao da URL o trata, retirando
@@ -23,10 +29,16 @@ if(!empty($_GET['control'])){
     $control = preg_replace( '/[^a-zA-Z]/i', '', $control );
     $acao = preg_replace( '/[^a-zA-Z]/i', '', $acao );
 
-    #Teste
-    #echo 'Control = ' . $control . ' <br /> Ação = ' . $acao . ' <br />';
+    $file = 'controller/'.$control.'Controller.class.php';
 
-    require_once ('controller/'.$control.'Controller.class.php');
+    if ( ! file_exists( $file ) ) {
+        echo "Página Não Encontrara!";
+        return;
+    }
+
+    // Inclui o arquivo da classe
+    require_once $file;
+
     $classe = $control.'Controller';
     $controle = new $classe($acao);
 }else{

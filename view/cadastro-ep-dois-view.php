@@ -107,9 +107,10 @@
 						</div>
 					</div>
 
-					<div class="col-md-12 animate-box">
+					<div class="col-md-12">
 						<div class="form-group">
-							<button value="Voltar" href="" name="tPrevious" class="btn btn-primary" onclick="history.go(-1)">Voltar</button>
+							<a href="javascript:window.history.go(-1)"class="btn btn-primary" >Voltar</a>
+
 							<input type="submit" value="Enviar Cadastro" name="tCadastrar" class="btn btn-primary" />
 						</div><!-- Fim da div Group do botão enviar -->
 					</div>
@@ -117,72 +118,84 @@
 			</form>
 
 			<?php
-				if(isset($_POST['tCadastrar'])){
+				if(isset($_POST['tCadastrar'])) {
 
-					$endereco = new Endereco();
+					$inMsg = "
+						<div class=\"alert alert-warning alert-dismissible\" role=\"alert\">
+							<button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
+							<span aria-hidden=\"true\">&times;</span></button>
+							<strong>Atenção!</strong>";
 
-					$endereco->setEstado($_POST['tEstado']);
-					$endereco->setCidade($_POST['tCidade']);
-					$endereco->setBairro($_POST['tBairro']);
-					$endereco->setLogradouro($_POST['tLogradouro']);
-					$endereco->setNumero($_POST['tNum']);
-					$endereco->setCep($_POST['tCep']);
-					$endereco->setLatitude(0);
-					$endereco->setLongitude(0);
 
-					$idEnd = $endereco->create();
+					if (empty($_GET['tE'])) {
+						echo $inMsg . " O e-mail é obrigatório!</div>";
+					} elseif (empty($_GET['tC'])) {
+						echo $inMsg . " O CPF é obrigatório!</div>";
+					} elseif (empty($_GET['tN'])) {
+						echo $inMsg . " O nome é obrigatório!</div>";
+					} elseif (empty($_GET['tS'])) {
+						echo $inMsg . " Uma senha é obrigatória!</div>";
+					}else{
+						$endereco = new Endereco();
 
-					if(isset($_POST['isPrestador'])){
+						$endereco->setEstado($_POST['tEstado']);
+						$endereco->setCidade($_POST['tCidade']);
+						$endereco->setBairro($_POST['tBairro']);
+						$endereco->setLogradouro($_POST['tLogradouro']);
+						$endereco->setNumero($_POST['tNum']);
+						$endereco->setCep($_POST['tCep']);
+						$endereco->setLatitude(0);
+						$endereco->setLongitude(0);
 
-						$pro = new Prestador();
+						$idEnd = $endereco->create();
 
-						$pro->setNome($_GET['tN']);
-						$pro->setSenha($_GET['tS']);
-						$pro->setEmail($_GET['tE']);
-						$pro->setCpf($_GET['tC']);
-						$pro->setGenero($_GET['tSe']);
-						$pro->setTelefone($_POST['tTelefone']);
-						$pro->setAreaAtuacao('tArea');
-						$pro->setEndereco($idEnd);
-						$pro->setTipoConta('gratis');
+						if (isset($_POST['isPrestador'])) {
 
-					?>
-					<script>
-						alert('foi');
-					</script>
-				<?php
+							$pro = new Prestador();
 
-						if($pro->inserir()){
-							echo "Cadastrado com sucesso";
+							$pro->setNome($_GET['tN']);
+							$pro->setSenha(md5($_GET['tS']));
+							$pro->setEmail($_GET['tE']);
+							$pro->setCpf($_GET['tC']);
+							$pro->setGenero($_GET['tSe']);
+							$pro->setTelefone($_POST['tTelefone']);
+							$pro->setAreaAtuacao('tArea');
+							$pro->setEndereco($idEnd);
+							$pro->setTipoConta('gratis');
+
 							?>
-								<script>
-									window.location="<?php echo HOME_URI.'/view/foto';?>";
-								</script>
-							<?php
-						}else{
+						<?php
+
+						if ($pro->inserir()){
+						echo "Cadastrado com sucesso";
+						?>
+							<script>
+								window.location = "<?php echo HOME_URI . '/view/foto/index.php?id=';?>";
+							</script>
+						<?php
+						} else {
 							echo "Erro ao cadastrar";
 						}
-					}else {
+						}else {
 						$cliente = new Cliente();
 
 						$cliente->setNome($_GET['tN']);
-						$cliente->setSenha($_GET['tS']);
+						$cliente->setSenha(md5($_GET['tS']));
 						$cliente->setEmail($_GET['tE']);
 						$cliente->setCpf($_GET['tC']);
 						$cliente->setGenero($_GET['tSe']);
 						$cliente->setTelefone($_POST['tTelefone']);
 						$cliente->setFoto('default');
 						$cliente->setEndereco($idEnd);
+						$cliente->setLogado(true);
 
-						if($cliente->inserir()){
-							echo "Cadastrado com sucesso";
-							?>
-								<script>
-									window.location="<?php echo HOME_URI.'/view/foto';?>";
-								</script>
+						$clienteIsert = $cliente->inserir();
+
+						?>
+							<script>
+								window.location = "<?php echo HOME_URI . '/view/foto/index.php?id='.$clienteIsert; ?>";
+							</script>
 							<?php
-						}else{
-							echo "Erro ao cadastrar";
 						}
 					}
 				}
