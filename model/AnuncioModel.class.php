@@ -5,7 +5,6 @@ class Anuncio {
 	private $idCliente;
 	private $titulo;
 	private $descricao;
-	private $valor;
 
 	function __construct($idCliente, $titulo, $descricao, $valor)
 	{

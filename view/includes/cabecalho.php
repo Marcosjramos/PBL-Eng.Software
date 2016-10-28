@@ -26,6 +26,8 @@
         <!-- Favicon personalisado -->
         <link rel="shortcut icon" href="favicon.ico">
 
+        <link rel="stylesheet" href="<?php echo HOME_URI; ?>/view/foto/css/component.css">
+
         <link href="https://fonts.googleapis.com/css?family=Raleway:200,300,400,700" rel="stylesheet">
         <!-- Animate.css -->
         <link rel="stylesheet" href="<?php echo HOME_URI; ?>/view/_estilo/_padrao/css/animate.css">

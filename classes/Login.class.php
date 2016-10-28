@@ -50,7 +50,7 @@ class Login{
 		if(filter_var($Email, FILTER_VALIDATE_EMAIL)):
 			$this->Pesquisa = new Read; //classe Read da CRUD
 			
-			$this->Pesquisa->ExeRead('clientes', 'WHERE email = :email', 'email='. $Email . ''); //Pesquisa no banco de dados
+			$this->Pesquisa->ExeRead('cliente', 'WHERE email = :email', 'email='. $Email . ''); //Pesquisa no banco de dados
 
 			//verifica se existe o e-mail no banco de dados
 			if($this->Pesquisa->getNumRegistros()==1): //existe
@@ -69,7 +69,7 @@ class Login{
 	private function verificaSenha($SenhaBD){
 		//strcmp(str1, str1)==0 se as duas strings forem iguais
 		if(isset($SenhaBD) and (strcmp($this->Senha, $SenhaBD)==0)):
-			$this->id = $this->Pesquisa->getResultado()[0]['id']; //id do usuário
+			$this->id = $this->Pesquisa->getResultado()[0]['idCliente']; //id do usuário
 			$this->setLogado(1); //1 = true 
 			//echo "<br>LOGIN EFETUADO COM SUCESSO";
 		else:
@@ -81,7 +81,7 @@ class Login{
 	private function setLogado($condicao){
 		$this->Update = new Update; //classe Update da CRUD
 
-		$this->Update->ExeUpdate('clientes', ['logado' => $condicao], 'WHERE id = :id', 'id='. $this->id); 
+		$this->Update->ExeUpdate('cliente', ['logado' => $condicao], 'WHERE idCliente = :idCliente', 'idCliente='. $this->id);
 
 		//se não houverem erros e apenas um dado for alterado
 		if($this->Update->getNumRegistros()==1 and $condicao==0):
@@ -122,7 +122,7 @@ class Login{
 			$this->Pesquisa = new Read; //classe Read da CRUD
 			
 			//Pesquisa no banco de dados do cliente por id
-			$this->Pesquisa->ExeRead('clientes', 'WHERE id = :id', 'id='. $this->id); 
+			$this->Pesquisa->ExeRead('cliente', 'WHERE idCliente = :idCliente', 'idCliente='. $this->id);
 
 			if($this->Pesquisa->getNumRegistros()==1): //existe
 				$this->setLogado(0); // 0 = false
