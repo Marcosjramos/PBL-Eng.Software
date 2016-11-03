@@ -1,15 +1,15 @@
 <?php
 
 require_once ('PrincipalController.class.php');
-class CadastroEpDoisController extends PrincipalController
+class FavoritoController extends PrincipalController
 {
 
     public function index()
     {
-        $this->setTitle('Cadastro');
+        $this->setTitle('Cadastro Ep 2');
 
         require_once PATH . "/view/includes/cabecalho.php";
-        require_once PATH . "/view/cadastro-ep-dois-view.php";
+        require_once PATH . "/view/quem-somos-view.php";
         require_once PATH . "/view/includes/footer.php";
     }
 
