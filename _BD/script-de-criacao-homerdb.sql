@@ -145,3 +145,15 @@ CREATE TABLE historico (
         REFERENCES contratacao (id)
 )  ENGINE=INNODB;
 
+CREATE TABLE servico(
+	idServico INT NOT NULL AUTO_INCREMENT,
+    dataServico timestamp default current_timestamp(),
+    valor DECIMAL(5 , 2 ),
+    idCliente INT NOT NULL,
+    idPrestador INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idCliente)
+        REFERENCES cliente (id),
+	FOREIGN KEY (idPrestador)
+        REFERENCES prestador (id)
+) ENGINE=INNODB;

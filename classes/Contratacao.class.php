@@ -35,25 +35,46 @@ class Contratacao{
 	}
 
 	/** 
-	 *<b>Contratação do Cliente:</b> 
+	 *<b>Contratação do Cliente:</b> método que requisita um contrato de um cliente para um prestador
      * 
-     * @param INT $idCliente
-     * @param INT $idPrestador
-     * @param INT $idLocalizacao
-     * @param DATA $dataInicio
+     * @param INT $idCliente = 
+     * @param INT $idPrestador = 
+     * @param INT $idLocalizacao = 
+     * @param DATA $dataInicio = 
 	 */
 	public function ContratacaoCliente($idCliente, $idPrestador, $idLocalizacao, $dataInicio){
+		//inicializa as variáveis:
 		$this->idCliente = $idCliente;
 		$this->idPrestador = $idPrestador;
 		$this->idLocalizacao = $idLocalizacao;
 		$this->dataInicio = $dataInicio;
 
-		$this->Dados = ['idCliente' => $this->idCliente, 'idPrestador' => $this->idPrestador, 'idLocalizacao' => $this->idLocalizacao,
-							'dataInicio' => $this->dataInicio];
+		if($this->verificaLocalizacao()):
+			$this->Dados = ['idCliente' => $this->idCliente, 'idPrestador' => $this->idPrestador, 'idLocalizacao' => $this->idLocalizacao,
+								'dataInicio' => $this->dataInicio];
 
-		$this->Create = new Create; //classe Create da CRUD
+			$this->Create = new Create; //classe Create da CRUD
 
-		$this->inicializaContrato();
+			$this->inicializaContrato();
+		else:
+			echo "ID localização incorreto/inexistente!";
+		endif;	
+	}
+
+	//função que verifica se a localização do cliente é a mesma do id de localização informado
+	//retorna TRUE ou FALSE
+	private function verificaLocalizacao(){
+		$this->Read->ExeRead('clientes', 'WHERE idEndereco = :idEndereco AND id = :id', 'idEndereco='. $this->idLocalizacao . '&id=' . $this->idCliente); //Pesquisa no banco de dados
+
+		$idC = $this->Read->getResultado()[0]['id']; //id cliente
+		$idL = $this->Read->getResultado()[0]['idEndereco']; //id do endereço/localização
+
+		if($this->Read->getNumRegistros()==1 and ($idC==$this->idCliente) and ($idL==$this->idLocalizacao)): //existe
+			//var_dump($this->Read->getResultado());
+			return true;
+		else: //não existe
+			return false;
+		endif;
 	}
 
 	//inicializa contrato do cliente
@@ -86,6 +107,7 @@ class Contratacao{
 		$this->dataFim = $dataFim;
 		$this->estadoServico = $estadoServico;
 		$this->valor = $valor;
+
 
 		$this->Read = new Read; //classe Read da CRUD
 
@@ -136,5 +158,23 @@ class Contratacao{
 	public function getDadosContrato($idContrato){
 		$this->Read->ExeRead('contratacao', 'WHERE id = :id', 'id='. $idContrato); //Pesquisa no banco de dados
 		return $this->Read->getResultado();
+	}
+
+	/** 
+	 *<b>Pegar Contratações do Prestador:</b> funcção que retorna todos os contratos pendentes do prestador
+     * 
+     * @return ARRAY $Dados = Array de todas as ocorrências de contratação do prestador. Array [0 => prestador 1, 1 => prestador 2..., n =>
+     * prestador n-1]. Cada array possui os índices da tabela de contratacao do banco de dados.
+     * 
+	 */
+	public function getContratacoesPrestador($idPrestador){
+		$this->Read->ExeRead('contratacao', 'WHERE idPrestador = :idPrestador', 'idPrestador='. $idPrestador . ''); //Pesquisa no banco de dados
+
+		if($this->Read->getNumRegistros()==1): //existe
+			//var_dump($this->Read->getResultado());
+			return $this->Read->getResultado(); //retorna todas as ocorrências 
+		else: //não existe
+			return null;
+		endif;
 	}
 }
